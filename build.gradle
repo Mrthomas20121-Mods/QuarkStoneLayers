@@ -108,6 +108,15 @@ repositories {
         name = 'TerraformersMC'
         url = 'https://maven.terraformersmc.com/'
     }
+    maven {
+        // for Zeta and JEI
+        name "blamejared"
+        url "https://maven.blamejared.com"
+        content {
+            includeGroup("org.violetmoon.zeta")
+            includeGroup("mezz.jei")
+        }
+    }
 }
 
 dependencies {
@@ -116,6 +125,11 @@ dependencies {
     implementation fg.deobf("com.terraformersmc:biolith-forge:${biolith_version}")
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixinextras_version}"))
     implementation(fg.deobf("io.github.llamalad7:mixinextras-forge:${mixinextras_version}"))
+
+    implementation fg.deobf("org.violetmoon.zeta:Zeta:${zeta}")
+    implementation fg.deobf("com.github.glitchfiend:TerraBlender-forge:${terrablender}")
+    implementation fg.deobf("curse.maven:flan-forge-493246:${flan}")
+    implementation fg.deobf("curse.maven:lootr-361276:${lootr}")
 
     implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curio_version}:api")
